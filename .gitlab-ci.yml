@@ -1,0 +1,18 @@
+# .gitlab-ci.yml
+stages:
+  - test
+
+playwright-tests:
+  image: mcr.microsoft.com/playwright:v1.42.1-jammy
+  stage: test
+  script:
+    - npm ci
+    - npx playwright install --with-deps
+    - npm test
+  artifacts:
+    when: always
+    paths:
+      - test-results/
+    reports:
+      junit: test-results/junit-report.xml
+
