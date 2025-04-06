@@ -1,7 +1,6 @@
 # .gitlab-ci.yml
 stages:
   - test
-
 playwright-tests:
   image: mcr.microsoft.com/playwright:v1.42.1-jammy
   stage: test
